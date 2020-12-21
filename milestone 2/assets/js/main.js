@@ -4,6 +4,7 @@ let app = new Vue ({
 
   data: {
 
+    msgIndex: 0,
     userName: "",
     avatar: "",
 
@@ -103,6 +104,9 @@ let app = new Vue ({
     printMsg: function (i) {
       this.userName = this.contacts[i].name;
       this.avatar = this.contacts[i].avatar;
+      this.msgIndex = i;
+      console.log(this.msgText);
+      console.log(this.msgIndex);
       console.log(this.userName);
     }
   }
