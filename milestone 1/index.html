@@ -21,10 +21,10 @@
       <div class="left_side">
 
         <!-- apertura user option -->
-        <div class="user_option">
+        <div class="user_option d-flex">
 
           <!-- apertura user option left -->
-          <div class="user_option_left">
+          <div class="user_option_left d-flex">
             <img src="assets/img/avatar_1.jpg" alt="">
             <h2>Nome Utente</h2>
           </div>
@@ -60,7 +60,7 @@
         <!-- apertura CONTACT LIST -->
         <div class="contact_list">
           <ul>
-            <li v-for="(contact, index) in contacts">
+            <li v-for="(contact, index) in contacts" class="d-flex">
               <img :src="`assets/img/avatar${contacts[index].avatar}.jpg`" alt="">
               <span>{{contacts[index].name}}</span>
             </li>
@@ -74,6 +74,42 @@
       <!-- apertura Right Side -->
       <div class="right_side">
       
+        <!-- apertura USER_ACCESS -->
+        <div class="user_access d-flex">
+
+          <!-- user access left -->
+          <div class="user_access_left d-flex">
+            <img src="assets/img/avatar_1.jpg" alt="">
+            <div class="d-flex">
+              <h2>Michele</h2>
+              <span>Ultimo accesso alle</span>
+            </div>
+          </div>
+
+          <!-- user access right -->
+          <div class="user_access_right d-flex">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-paperclip"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+
+        </div>
+        <!-- chiusura USER_ACCESS -->
+
+        <!-- apertura chat window -->
+        <div class="chat_window">
+
+        </div>
+        <!-- chiusra chat window -->
+
+        <!-- apertura chat input -->
+        <div class="chat_input d-flex">
+          <i class="far fa-smile"></i>
+          <input type="text" placeholder="Scrivi un messaggio">
+          <i class="fas fa-microphone"></i>
+        </div>
+        <!-- chiusura chat input -->
+
       </div>
       <!-- chiusura Right Side -->
 
