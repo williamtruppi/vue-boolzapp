@@ -1,13 +1,12 @@
 let app = new Vue ({
-
+  
   el: ".container",
 
   data: {
-
     msgIndex: 0,
     userName: "",
     avatar: "",
-
+    date: "",
 
       contacts: [
 
@@ -102,28 +101,63 @@ let app = new Vue ({
 
 
   methods: {
+
+
     printMsg: function (i) {
       this.userName = this.contacts[i].name;
       this.avatar = this.contacts[i].avatar;
       this.msgIndex = i;
-      console.log(this.msgText);
       console.log(this.msgIndex);
       console.log(this.userName);
     },
+    
 
+    //funzione che stampa un messaggio inserito dall'utente
     insertNewMsg: function (index) {
 
       const inputText = document.querySelector(".input_text").value;
       console.log(inputText);
 
+      this.getDate();
+
       const newUserMgs = {
-        date: '10/01/2020 15:50:00',
+        date: this.date,
         text: inputText,
         status: 'sent'
       }
       console.log(newUserMgs);
 
-      this.contacts[index].messages.push(newUserMgs);
+      if(newUserMgs.text.length > 0){
+        this.contacts[index].messages.push(newUserMgs);
+      }
+
+      setTimeout(this.cpuAnswerMsg, 1000);
+    },
+
+    //funzione che ottiene la data di sistema
+    getDate: function (){
+      const systemDate = new Date();
+      const LocaleDateString = systemDate.toLocaleDateString();
+      const Hours = systemDate.getHours();
+      const Minutes = systemDate.getMinutes();
+      const Seconds = systemDate.getSeconds();
+      this.date = LocaleDateString + " " + Hours + ":" + Minutes + ":" + Seconds;
+      console.log(this.date);
+    },
+
+    //funzione che inserisce il messaggio automatico nell'array messages
+    cpuAnswerMsg: function (index) {
+
+      this.getDate();
+
+      const newCpuMgs = {
+        date: this.date,
+        text: "messagio automatico",
+        status: 'received'
+      }
+
+      this.contacts[this.msgIndex].messages.push(newCpuMgs);
+      
     }
   }
 
