@@ -101,16 +101,14 @@
 
           <!-- apertura chat box -->
           <div class="chat_box d-flex">
-              <div :class="(message.status === 'sent') ? 'msg_sent' : 'msg_received' " v-for="message in contacts[msgIndex].messages">
-                  <div>
-                    <span>{{message.text}}</span>
+              <ul :class="(message.status === 'sent') ? 'msg_sent' : 'msg_received' " v-for="message in contacts[msgIndex].messages">
+                  <li>
+                    <p>{{message.text}}</p>
                     <br>
-                    <br>
-                    <span>{{message.date}}</span>
-                  </div>
-              </div>
+                    <p>{{message.date}}</p>
+                  </li>
+              </ul>
           </div>
-          
           <!-- chiusura chat box -->
 
         </div>

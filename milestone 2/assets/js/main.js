@@ -8,6 +8,7 @@ let app = new Vue ({
     userName: "",
     avatar: "",
 
+
       contacts: [
 
         {
