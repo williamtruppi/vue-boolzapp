@@ -7,6 +7,7 @@ let app = new Vue ({
     userName: "",
     avatar: "",
     date: "",
+    test: "",
 
       contacts: [
 
@@ -102,10 +103,9 @@ let app = new Vue ({
 
   methods: {
 
-
     printMsg: function (i) {
-      this.userName = this.contacts[i].name;
-      this.avatar = this.contacts[i].avatar;
+      this.userName = this.searchContacts[i].name;
+      this.avatar = this.searchContacts[i].avatar;
       this.msgIndex = i;
       console.log(this.msgIndex);
       console.log(this.userName);
@@ -158,6 +158,22 @@ let app = new Vue ({
 
       this.contacts[this.msgIndex].messages.push(newCpuMgs);
       
+    },
+
+  },
+
+    /* uso computed poiché ciò mi permette di accedere alla funzione
+    di ricerca senza doverla invocare attivamente con una pressione del tasto, ma di utilizzarla
+    come se fosse una semplice proprietà da invocare. Sarà poi la proprietà computed a ricavarsi dalla funzione 
+    ciò che gli serve in quel particolare punto del codice */
+    
+  computed: {
+    //funzione che cerca il contatto e restituisce una lista filtrata
+    
+    searchContacts: function () {  
+      return this.contacts.filter(element => {
+        return element.name.toLowerCase().includes(this.test.toLowerCase());
+      });
     }
   }
 

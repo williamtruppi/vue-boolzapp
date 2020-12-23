@@ -53,16 +53,16 @@
 
         <!-- apertura SEARCH CONTACTS -->
         <div class="search_contacts d-flex">
-          <input type="text" placeholder="Cerca o inizia una nuova chat">
+          <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="test" v-on:keyup.enter="searchContacts()" class="input_contact">
         </div>
         <!-- chiusura SEARCH CONTACTS -->
 
         <!-- apertura CONTACT LIST -->
         <div class="contact_list">
           <ul>
-            <li v-for="(contact, index) in contacts" class="d-flex" @click="printMsg(index)">
-              <img :src="`assets/img/avatar${contacts[index].avatar}.jpg`" alt="">
-              <span>{{contacts[index].name}}</span>
+            <li v-for="(contact, index) in searchContacts" class="d-flex" @click="printMsg(index)">
+              <img :src="`assets/img/avatar${contact.avatar}.jpg`" alt="">
+              <span>{{contact.name}}</span>
             </li>
           </ul>
         </div>
@@ -101,7 +101,7 @@
 
           <!-- apertura chat box -->
           <div class="chat_box d-flex">
-              <ul :class="(message.status === 'sent') ? 'msg_sent' : 'msg_received' " v-for="message in contacts[msgIndex].messages">
+              <ul :class="(message.status === 'sent') ? 'msg_sent' : 'msg_received' " v-for="message in searchContacts[msgIndex].messages">
                   <li>
                     <p>{{message.text}}</p>
                     <br>
