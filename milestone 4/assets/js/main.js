@@ -104,8 +104,8 @@ let app = new Vue ({
   methods: {
 
     printMsg: function (i) {
-      this.userName = this.searchContacts[i].name;
-      this.avatar = this.searchContacts[i].avatar;
+      this.userName = this.contacts[i].name;
+      this.avatar = this.contacts[i].avatar;
       this.msgIndex = i;
       console.log(this.msgIndex);
       console.log(this.userName);
@@ -158,7 +158,7 @@ let app = new Vue ({
 
       this.contacts[this.msgIndex].messages.push(newCpuMgs);
       
-    },
+    }
 
   },
 
@@ -169,12 +169,23 @@ let app = new Vue ({
     
   computed: {
     //funzione che cerca il contatto e restituisce una lista filtrata
-    
     searchContacts: function () {  
-      return this.contacts.filter(element => {
+      console.log(this.test);
+      for (let i = 0; i < this.contacts.length; i++){
+        this.contacts[i].visible = false;
+
+        if (this.contacts[i].name.toLowerCase().includes(this.test.toLowerCase())){
+          this.contacts[i].visible = true;
+          return this.contacts;
+          console.log("sono vero");
+          console.log(this.contacts[i].name, this.contacts[i].visible );
+        }
+      }
+      /* return this.contacts.filter(element => {
         return element.name.toLowerCase().includes(this.test.toLowerCase());
-      });
+      }); */
     }
+    
   }
 
 })
