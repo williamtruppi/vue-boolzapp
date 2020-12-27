@@ -53,7 +53,7 @@
 
         <!-- apertura SEARCH CONTACTS -->
         <div class="search_contacts d-flex">
-          <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="test" v-on:keyup.enter="searchContacts" class="input_contact">
+          <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="test" v-on:keyup="searchContacts()" class="input_contact">
         </div>
         <!-- chiusura SEARCH CONTACTS -->
 
