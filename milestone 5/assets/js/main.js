@@ -107,6 +107,7 @@ let app = new Vue ({
       this.userName = this.contacts[i].name;
       this.avatar = this.contacts[i].avatar;
       this.msgIndex = i;
+      this.getDate ();
       console.log(this.msgIndex);
       console.log(this.userName);
     },
@@ -137,11 +138,11 @@ let app = new Vue ({
     //funzione che ottiene la data di sistema
     getDate: function (){
       const systemDate = new Date();
-      const LocaleDateString = systemDate.toLocaleDateString();
-      const Hours = systemDate.getHours();
-      const Minutes = systemDate.getMinutes();
-      const Seconds = systemDate.getSeconds();
-      this.date = LocaleDateString + " " + Hours + ":" + Minutes + ":" + Seconds;
+      const localeDateString = systemDate.toLocaleDateString();
+      const hours = systemDate.getHours();
+      const minutes = systemDate.getMinutes();
+      const seconds = systemDate.getSeconds();
+      this.date = localeDateString + " " + hours + ":" + minutes + ":" + seconds;
       console.log(this.date);
     },
 
