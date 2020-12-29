@@ -137,8 +137,12 @@
   border-radius: 50%;
 }
 
-.contact_list li span {
+.contact_list li span, .contact_list li p  {
   margin-left: 20px;
+}
+
+.contact_info p {
+  color: grey;
 }
 
 /* right side */
