@@ -101,15 +101,26 @@
 
           <!-- apertura chat box -->
           <div class="chat_box d-flex">
-              <ul :class="(message.status === 'sent') ? 'msg_sent' : 'msg_received' " v-for="message in contacts[msgIndex].messages">
+              <ul :class="(message.status === 'sent') ? 'msg_sent' : 'msg_received' " v-for="(message, index) in contacts[msgIndex].messages">
                   <li v-if="contacts[msgIndex].visible == true">
-                    <p>{{message.text}}</p>
+                    <p>{{message.text}} </p>
+                    <i class="fas fa-chevron-down">
+                      <!-- apertura box_delete_msg -->
+                      <div class="box_delete_msg" >
+                        <p>Message Info</p>
+                        <p @click="deleteMsg(index)">Cancella Messaggio</p>
+                      </div>
+                      <!-- chiusura box_delete_msg -->
+                    </i>
                     <br>
                     <p>{{message.date}}</p>
+                    
                   </li>
               </ul>
           </div>
           <!-- chiusura chat box -->
+
+          
 
         </div>
         <!-- chiusra chat window -->

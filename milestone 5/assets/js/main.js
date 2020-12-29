@@ -174,6 +174,10 @@ let app = new Vue ({
       /* return this.contacts.filter(element => {
         return element.name.toLowerCase().includes(this.test.toLowerCase());
       }); */
+    },
+
+    deleteMsg: function (i) {
+      this.contacts[this.msgIndex].messages.splice(i, 1)
     }
 
   },

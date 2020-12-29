@@ -170,6 +170,37 @@
   list-style: none;
 }
 
+.chat_box ul li {
+  list-style: none;
+  position: relative;
+}
+
+.fa-chevron-down{
+  opacity: 0;
+  float: right;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.box_delete_msg{
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 1px 1px 13px 3px #000000;
+  padding: 5px;
+  z-index: 1;
+  transform: translateX(-70%);
+  font-weight: 500;
+}
+
+.fa-chevron-down:hover .box_delete_msg {
+  display: block;
+}
+
+.chat_box ul li:hover .fa-chevron-down {
+  opacity: 1;
+}
+
 .msg_sent{
   margin-bottom: 20px;
   background-color: #13940A;
